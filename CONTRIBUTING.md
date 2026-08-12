@@ -5,6 +5,8 @@ When contributing, be sure to follow our [codebase conventions](https://docs.spa
 
 Following these guidelines helps us increase review turnaround time, so be sure to review the linked documents in full.
 
+Use imperative commit subjects (for example, `Add agent bridge protocol validation`). Keep agent-bridge changes launch-gated, client-scoped, and separate from unrelated upstream refactors.
+
 The last major guidelines update was on **December 6th, 2025**.
 
 ### Why is this here?

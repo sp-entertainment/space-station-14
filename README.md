@@ -58,6 +58,21 @@ Build the server using `dotnet build`.
 
 [More detailed instructions on building the project.](https://docs.spacestation14.com/en/general-development/setup.html)
 
+## Agent bridge prototype
+
+This fork adds an optional graphical-client bridge for the first move/open-door/speak proof. It is disabled unless a loopback port is supplied.
+
+```shell
+dotnet run --project Content.Server
+dotnet run --project Content.Client
+dotnet run --project Content.Client -- --cvar agent.bridge_port=47614
+python3 AgentHarness/m1_runner.py --port 47614
+```
+
+Join both clients to the same local round and place the agent character within interaction range of a door before starting the runner. A passing run prints one machine-readable JSON result. The human client remains the visible parity check for movement, the door outcome, and `Agent bridge online.`
+
+The v0 bridge accepts newline-delimited JSON on `127.0.0.1`, exposes only the attached client and interaction-reachable doors, and routes actions through existing input and chat systems. Use a different port for each agent-enabled client.
+
 ## License
 
 All code for the content repository is licensed under the [MIT license](https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT).  
